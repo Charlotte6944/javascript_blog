@@ -5,12 +5,25 @@ const form = document.querySelector('form');
 const errorElement = document.querySelector('#errors');
 let errors = [];
 
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  const formData = new FormData(form);
-  const article = Object.fromEntries(formData.entries());
-  if (formIsValid(article)) {
-    const json = JSON.stringify(article);
+form.addEventListener('submit',async event => {
+  try {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const article = Object.fromEntries(formData.entries());
+    if (formIsValid(article)) {
+      const json = JSON.stringify(article);
+      const promesse = await fetch('https://restapi.fr/api/articles_blog_charlotte', {
+        method: 'POST',
+        body: json,
+        headers: {
+          'content-type': 'application/json'
+        }
+      });
+    }
+    const body  = await response.json();
+    console.log(body);
+  } catch (e) {
+    console.log('e: ', e);
   }
 })
 
@@ -26,7 +39,9 @@ const formIsValid = (article) => {
       errorHtml += `<li>${e}</li>`;
     })
     errorElement.innerHTML = errorHtml;
+    return false;
   } else {
     errorElement.innerHTML = "";
+    return true;
   }
 }
