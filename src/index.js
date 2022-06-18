@@ -20,11 +20,27 @@ const createArticles = (articles) => {
   })
   articleContainerElement.innerHTML = '';
   articleContainerElement.append(...articlesDom);
+  const deleteButtons = articleContainerElement.querySelectorAll('.btn-danger');
+  deleteButtons.forEach( button => {
+    button.addEventListener('click', async event => {
+      try {
+        const target = event.target;
+        const articleId = target.dataset.id;
+        const response = await fetch(`https://restapi.fr/api/charlotte/${articleId}`, {
+          method: 'DELETE'
+        });
+        const body = response.json();
+        fetchArticles();
+      } catch (error) {
+        console.log("e: ", err);
+      }
+    })
+  })
 }
 
 const fetchArticles = async () => {
   try {
-    const response = await fetch("https://restapi.fr/api/articles_blog_charlotte");
+    const response = await fetch(`https://restapi.fr/api/charlotte`);
     const articles = await response.json();
     createArticles(articles);
   } catch (err) {

@@ -12,7 +12,7 @@ form.addEventListener('submit',async event => {
     const article = Object.fromEntries(formData.entries());
     if (formIsValid(article)) {
       const json = JSON.stringify(article);
-      const promesse = await fetch('https://restapi.fr/api/articles_blog_charlotte', {
+      const promesse = await fetch('https://restapi.fr/api/charlotte', {
         method: 'POST',
         body: json,
         headers: {
