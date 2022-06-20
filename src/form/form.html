@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <!-- Nous utilisons un bundler pour préprocesser le Sass en CSS qui s'appelle Parcel.
-			Ces imports ne sont nécessaires que sur l'éditeur en ligne. -->
-    <script src="./form.js"></script>
-    <script src="/src/assets/javascripts/topbar.js"></script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Blog</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap"
+
+
+
+href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -21,10 +21,12 @@
         <div class="header-menu">
           <ul>
             <li>
-              <a href="/src/index.html" class="header-nav">Accueil</a>
+              <a href="./index.html"
+class="header-nav">Accueil</a>
             </li>
             <li>
-              <a href="/src/form/form.html" class="header-nav active"
+              <a href="./form.html" class="header-nav
+active"
                 >Créer un article</a
               >
             </li>
@@ -36,7 +38,8 @@
       </header>
       <div class="content">
         <form>
-          <h2 class="title-underline">Ajouter un article</h2>
+          <h2 class="title-underline">Ajouter un
+article</h2>
           <div class="form-group">
             <label>Auteur</label>
             <input type="text" name="author" />
@@ -59,8 +62,10 @@
           </div>
           <ul class="text-error" id="errors"></ul>
           <div class="form-btn-container">
-            <button class="btn btn-secondary">Annuler</button>
-            <button class="btn btn-primary">Sauvegarder</button>
+            <button type="button" class="btn
+btn-secondary">Annuler</button>
+            <button type="submit" class="btn
+btn-primary">Sauvegarder</button>
           </div>
         </form>
       </div>
