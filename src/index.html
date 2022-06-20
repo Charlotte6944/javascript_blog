@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- Nous utilisons un bundler pour préprocesser le Sass en CSS qui s'appelle Parcel.
+			Ces imports ne sont nécessaires que sur l'éditeur en ligne. -->
+    <script src="src/index.js"></script>
+    <script src="/src/assets/javascripts/topbar.js"></script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,
-initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Blog</title>
     <link
-
-
-
-href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap"
       rel="stylesheet"
     />
     <script
@@ -25,11 +25,10 @@ href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap"
         <div class="header-menu">
           <ul>
             <li>
-              <a href="./index.html" class="header-nav
-active">Accueil</a>
+              <a href="./index.html" class="header-nav active">Accueil</a>
             </li>
             <li>
-              <a href="./form.html" class="header-nav"
+              <a href="/src/form/form.html" class="header-nav"
                 >Créer un article</a
               >
             </li>
@@ -41,8 +40,11 @@ active">Accueil</a>
       </header>
       <div class="content">
         <div class="sidebar">
-          <ul class="categories">
-          </ul>
+          <select>
+            <option value="desc">Le plus récent</option>
+            <option value="asc">Le plus ancien</option>
+          </select>
+          <ul class="categories"></ul>
         </div>
         <div class="articles-container"></div>
       </div>
